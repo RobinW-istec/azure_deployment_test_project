@@ -1,10 +1,19 @@
 package de.istec;
 
-import javax.ws.rs.*;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.xml.crypto.Data;
+import java.util.List;
 
 @Path("/api")
 public class GreetingResource {
+
+    @Inject
+    EntityManager em;
 
     @GET
     @Path("/hello")
@@ -16,11 +25,8 @@ public class GreetingResource {
     @GET
     @Path("/data")
     @Produces(MediaType.APPLICATION_JSON)
-    public String data() {
-        return "Data from Database comming soon...";
-        //return em.createQuery("SELECT s FROM schichten s where cut = :cut", Schicht.class)
-        //        .setParameter("cut", cut)
-        //        .getResultList();
+    public List<Data> data() {
+        return em.createNamedQuery("getAllData", Data.class).getResultList();
     }
 
 }
