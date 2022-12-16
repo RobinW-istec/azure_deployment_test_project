@@ -6,7 +6,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.xml.crypto.Data;
 import java.util.List;
 
 @Path("/api")
@@ -25,7 +24,7 @@ public class GreetingResource {
     @GET
     @Path("/data")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Data> data() {
+    public List<de.istec.Data> data() {
         return em.createNamedQuery("getAllData", Data.class).getResultList();
     }
 
