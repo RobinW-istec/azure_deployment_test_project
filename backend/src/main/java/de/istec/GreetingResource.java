@@ -24,6 +24,14 @@ public class GreetingResource {
     }
 
     @GET
+    @Path("/hello2")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String hello2() {
+
+        return "Hello2 from RESTEasy Reactive";
+    }
+
+    @GET
     @Path("/data")
     @Produces(MediaType.APPLICATION_JSON)
     public List<de.istec.Data> data() {
