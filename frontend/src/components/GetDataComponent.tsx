@@ -53,6 +53,9 @@ export const GetDataComponent = () => {
             <div>
                 Ergebnislänge: {data.length == 5 ? 5 : 1}
             </div>
+            <div>
+                Unterschied im frontend!
+            </div>
         </>
     );
 }
