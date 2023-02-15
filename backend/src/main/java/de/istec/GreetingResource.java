@@ -23,13 +23,7 @@ public class GreetingResource {
         return "Hello from RESTEasy Reactive";
     }
 
-    @GET
-    @Path("/hello2")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String hello2() {
 
-        return "Hello2 from RESTEasy Reactive";
-    }
 
     @GET
     @Path("/data")

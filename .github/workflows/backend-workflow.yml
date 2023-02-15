@@ -31,7 +31,7 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - name: Build docker image
-        run: docker build --file src/main/docker/Dockerfile.jvm --tag ${{ secrets.ACR_LOGIN_SERVER }}/deploytest/backend
+        run: docker build . --file src/main/docker/Dockerfile.jvm --tag ${{ secrets.ACR_LOGIN_SERVER }}/deploytest/backend
         working-directory: ./backend
       - name: Push docker image to container registry
         run: docker push ${{ secrets.ACR_LOGIN_SERVER }}/deploytest/backend
