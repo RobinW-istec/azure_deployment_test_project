@@ -56,9 +56,7 @@ export const GetDataComponent = () => {
             <div>
                 Unterschied im frontend!
             </div>
-            <div>
-                Unterschied im frontend!
-            </div>
+
         </>
     );
 }
