@@ -24,15 +24,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Login to azure container registry
         uses: azure/docker-login@v1
         with:
           login-server: ${{ secrets.ACR_LOGIN_SERVER }}
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
+
+
       - name: Build docker image
         run: docker build . --file src/main/docker/Dockerfile.jvm --tag ${{ secrets.ACR_LOGIN_SERVER }}/deploytest/backend
         working-directory: ./backend
+
       - name: Push docker image to container registry
         run: docker push ${{ secrets.ACR_LOGIN_SERVER }}/deploytest/backend
         working-directory: ./backend
