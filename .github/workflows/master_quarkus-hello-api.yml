@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: istecwkcontainerregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_259c85750b64428c8b53dbc2dca15a63 }}/quarkus/hello-api:${{ github.sha }}
-        file: ./Dockerfile
+        file: ./src/main/docker/Dockerfile.jvm
 
   deploy:
     runs-on: ubuntu-latest
