@@ -29,6 +29,7 @@ jobs:
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
+        context: .
         push: true
         tags: istecwkcontainerregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_259c85750b64428c8b53dbc2dca15a63 }}/quarkus/hello-api:${{ github.sha }}
         file: ./backend/src/main/docker/Dockerfile.jvm
