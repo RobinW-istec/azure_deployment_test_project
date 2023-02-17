@@ -35,7 +35,7 @@ jobs:
       - name: maven build
         uses: actions/setup-java@v3
         with:
-          java-verion: '11'
+          java-version: '11'
       - name: Build with Maven
         run: mvn package
 
