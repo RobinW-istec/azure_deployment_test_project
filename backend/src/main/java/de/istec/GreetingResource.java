@@ -20,7 +20,6 @@ public class GreetingResource {
     }
 
 
-
 //    @GET
 //    @Path("/data")
 //    @Produces(MediaType.APPLICATION_JSON)
