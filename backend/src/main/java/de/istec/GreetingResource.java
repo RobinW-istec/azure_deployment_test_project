@@ -1,5 +1,7 @@
 package de.istec;
 
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -17,6 +19,16 @@ public class GreetingResource {
     public String hello() {
 
         return "Hello from RESTEasy Reactive";
+    }
+
+    @ConfigProperty(name = "testdata.value")
+    String testDataValue;
+
+    @GET
+    @Path("/secret")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String secret() {
+        return "Value from terraform: " + testDataValue;
     }
 
 //    @GET
