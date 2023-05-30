@@ -22,8 +22,6 @@ public class GreetingResource {
         return "Hello from RESTEasy Reactive";
     }
 
-    @ConfigProperty(name = "testdata.value")
-    String testDataValue;
     @ConfigProperty(name = "exampledata.username")
     String exampleDataUsername;
     @ConfigProperty(name = "exampledata.password")
