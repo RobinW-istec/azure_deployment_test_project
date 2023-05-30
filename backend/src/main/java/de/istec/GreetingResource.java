@@ -24,24 +24,24 @@ public class GreetingResource {
 
     @ConfigProperty(name = "testdata.value")
     String testDataValue;
-    @ConfigProperty(name = "testdata.value2")
-    String secret2;
-    @ConfigProperty(name = "testdata.value3")
-    String secret3;
+    @ConfigProperty(name = "exampledata.username")
+    String exampleDataUsername;
+    @ConfigProperty(name = "exampledata.password")
+    String exampleDataPassword;
 
     @GET
     @Path("/secret")
     @Produces(MediaType.TEXT_PLAIN)
     public String secret() {
-        return "Value from terraform: " + testDataValue;
+        return "Secrets from terraform: \n Username: " + exampleDataUsername + "\n Password: " + exampleDataPassword;
     }
 
     @GET
     @Path("/secret/{value}")
     @Produces(MediaType.TEXT_PLAIN)
     public String secret(@PathParam("value") int v) {
-        String res = v == 1 ? testDataValue : v == 2 ? secret2 : secret3;
-        return "Value from terraform: " + res;
+        String res = v == 1 ? "Username: " + exampleDataUsername : "Password: " + exampleDataPassword;
+        return "Value from terraform \n" + res;
     }
 
 //    @GET
