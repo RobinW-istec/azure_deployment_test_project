@@ -4,6 +4,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -23,12 +24,24 @@ public class GreetingResource {
 
     @ConfigProperty(name = "testdata.value")
     String testDataValue;
+    @ConfigProperty(name = "testdata.value2")
+    String secret2;
+    @ConfigProperty(name = "testdata.value3")
+    String secret3;
 
     @GET
     @Path("/secret")
     @Produces(MediaType.TEXT_PLAIN)
     public String secret() {
         return "Value from terraform: " + testDataValue;
+    }
+
+    @GET
+    @Path("/secret/{value}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String secret(@PathParam("value") int v) {
+        String res = v == 1 ? testDataValue : v == 2 ? secret2 : secret3;
+        return "Value from terraform: " + res;
     }
 
 //    @GET
