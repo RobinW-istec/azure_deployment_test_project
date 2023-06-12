@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import {GetDataComponent} from "./components/GetDataComponent";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,8 +18,8 @@ function App() {
           count is {count}
         </button>
       </div>
-        <div> Hier ist ein neuer commit !!! 1 </div>
-      <GetDataComponent/>
+        <div> Hallo, ich bin eine Web App in der Azure Cloud! </div>
+      {/*<GetDataComponent/>*/}
     </div>
   )
 }
