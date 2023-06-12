@@ -42,6 +42,13 @@ public class GreetingResource {
         return "Value from terraform \n" + res;
     }
 
+    @GET
+    @Path("/version")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String version() {
+        return "Ich bin Version 1.0";
+    }
+
 //    @GET
 //    @Path("/data")
 //    @Produces(MediaType.APPLICATION_JSON)
