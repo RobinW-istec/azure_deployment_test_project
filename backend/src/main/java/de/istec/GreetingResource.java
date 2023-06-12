@@ -46,7 +46,10 @@ public class GreetingResource {
     @Path("/version")
     @Produces(MediaType.TEXT_PLAIN)
     public String version() {
-        return "Ich bin Version 1.0";
+        String aktuell = "1.1";
+        return "1.0 12-06-2023 12:27 Uhr"
+                + "\n "
+                + "\n aktuell: " + aktuell;
     }
 
 //    @GET
